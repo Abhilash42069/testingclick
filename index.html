@@ -23,8 +23,8 @@
 
         #hover-button {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 100px;
+            right: 150px;
             z-index: 9999;
             padding: 10px 20px;
             background-color: #4CAF50;
@@ -46,10 +46,11 @@
     </div>
 
     <!-- Click button -->
-    <button id="hover-button">Click Me</button>
+    <button id="hover-button">Say Hi to the Chatbot!</button>
 
     <script>
         var newIframe = null;
+        var button = document.getElementById('hover-button');
 
         function toggleIframe() {
             var iframeContainer = document.getElementById('iframe-container');
@@ -63,14 +64,16 @@
                 newIframe.style.height = '1080px';
 
                 iframeContainer.appendChild(newIframe);
+                button.textContent = "Bye!";
             } else {
                 iframeContainer.removeChild(newIframe);
                 newIframe = null;
+                button.textContent = "Say Hi to the Chatbot!";
             }
         }
 
         // Add event listener to the button to toggle the iframe
-        document.getElementById('hover-button').addEventListener('click', toggleIframe);
+        button.addEventListener('click', toggleIframe);
     </script>
 </body>
 </html>
